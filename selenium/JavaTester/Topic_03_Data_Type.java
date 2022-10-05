@@ -6,11 +6,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.openqa.selenium.WebDriver;
-
 public class Topic_03_Data_Type {
 
-		public static void main(string[] args) {
+		public static void main(String[] args) {
 		// Thông tin của 1 nhân viên
 		// Tên/ Tuổi/ Ngày sinh/ Giới tính/ Quê quán/ Lương...
 		// Ánh xạ thông tin này trong lập trình
@@ -59,7 +57,6 @@ public class Topic_03_Data_Type {
 			// String name;
 			// name = "Tran Thi Yen";
 
-		WebDriver driver = new FirefoxDriver();
 
 		}
 }
