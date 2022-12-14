@@ -25,6 +25,9 @@ public class Topic_12_Alert {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		}
+//Phân biệt Alert/Popup/Windows
+//	Alert và Window phải Switch mới bắt được
+//	Popip có thể inspect được ngay trên trình duyệt
 //Phân biệt Alert / Popup-Dialog-Form / Window
 //	1. Alert
 	// Alert là của Browser, không thuộc Elemet (WebElemet) -> Không inspect được
@@ -95,7 +98,27 @@ public class Topic_12_Alert {
 	}
 	
 	@Test
-	public void TC_03_Authentication_Alert() {
+	public void TC_04_Accept_Alert_Login() {
+		driver.get("https://demo.guru99.com/v4/index.php");
+		driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
+		sleepInSecond(2);
+		
+		alert = driver.switchTo().alert();
+		sleepInSecond(1);
+		
+		//Verify alert title
+		Assert.assertEquals(alert.getText(), "User or Password is not valid");
+		
+		//Accerp to alert
+		alert.accept();
+		
+		//Verify url
+		Assert.assertEquals(driver.getCurrentUrl(), "https://demo.guru99.com/v4/index.php");
+	}
+
+	
+	@Test
+	public void TC_05_Authentication_Alert() {
 		sleepInSecond(5);
 		
 	}
