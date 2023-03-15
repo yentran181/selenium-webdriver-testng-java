@@ -19,7 +19,7 @@ public class BaseTest extends BasePage {
 	private WebDriver baseTestDriver;
 	
 
-	protected WebDriver getBrowserDriver(String browserName) {
+	protected WebDriver getBrowserDriver(String browserName, String pageURL) {
 		if (browserName.equals("chrome")) {
 			//System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 			WebDriverManager.chromedriver().setup();
@@ -78,7 +78,7 @@ public class BaseTest extends BasePage {
 			}
 		
 		baseTestDriver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
-		baseTestDriver.get(GlobalConstants.JQUERY_PAGE_URL);
+		baseTestDriver.get(pageURL);
 		return baseTestDriver;
 	}
 	

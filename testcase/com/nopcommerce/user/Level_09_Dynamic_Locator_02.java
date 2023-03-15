@@ -9,6 +9,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import pageObjects.nopCommerce.user.PageGeneraterManager;
 import pageObjects.nopCommerce.user.UserBackInStockSubscriptionsPageObject;
 import pageObjects.nopCommerce.user.UserChangePasswordPageObject;
@@ -41,9 +42,8 @@ public class Level_09_Dynamic_Locator_02 extends BaseTest {
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver(browserName, GlobalConstants.NOPCOMMERCE_USER_PAGE_URL);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.get("https://demo.nopcommerce.com/");
 		homePage = PageGeneraterManager.getUserHomePage(driver);	
 		
 		firstname = "Automation";

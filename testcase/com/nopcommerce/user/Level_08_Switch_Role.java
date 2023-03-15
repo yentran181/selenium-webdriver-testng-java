@@ -35,7 +35,7 @@ public class Level_08_Switch_Role extends BaseTest {
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver(browserName, GlobalConstants.NOPCOMMERCE_USER_PAGE_URL);
 		userHomePage = PageGeneraterManager.getUserHomePage(driver);	
 		useremailAddress = getRandomEmail();
 		userpassword = "123456";
@@ -67,7 +67,7 @@ public class Level_08_Switch_Role extends BaseTest {
 		Assert.assertTrue(userHomePage.isMyAccountLinkDisplayed());
 		clickToLogoutLinkAtUserPage(driver);
 		
-		userHomePage.openPageUrl(driver, GlobalConstants.ADMIN_PAGE_URL);
+		userHomePage.openPageUrl(driver, GlobalConstants.NOPCOMMERCE_USER_PAGE_URL);
 		adminLoginPage = PageGeneraterManager.getAdminLoginPage(driver);
 		
 		adminDashboardPage = adminLoginPage.loginAsAdmin(adminEmailAddress, adminPassword);

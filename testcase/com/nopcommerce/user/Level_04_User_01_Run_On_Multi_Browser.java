@@ -11,6 +11,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserLoginPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
@@ -27,10 +28,9 @@ public class Level_04_User_01_Run_On_Multi_Browser extends BaseTest {
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		System.out.println("Run on" + browserName);
-		testClassDriver = getBrowserDriver(browserName);
+		testClassDriver = getBrowserDriver(browserName, GlobalConstants.NOPCOMMERCE_USER_PAGE_URL);
 		System.out.println("Driver - class: " + testClassDriver);
 		testClassDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		testClassDriver.get("https://demo.nopcommerce.com/");
 		homePage = new UserHomePageObject(testClassDriver);	
 		
 		firstname = "Automation";

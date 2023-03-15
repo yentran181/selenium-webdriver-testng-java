@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
+import commons.GlobalConstants;
 import pageObjects.nopCommerce.user.PageGeneraterManager;
 import pageObjects.nopCommerce.user.UserBackInStockSubscriptionsPageObject;
 import pageObjects.nopCommerce.user.UserChangePasswordPageObject;
@@ -42,7 +43,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver(browserName, GlobalConstants.NOPCOMMERCE_USER_PAGE_URL);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
 		homePage = PageGeneraterManager.getUserHomePage(driver);	
@@ -77,7 +78,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	public void User_03_My_Account() {
 
 		customerInforPage = homePage.clickToMyAccountLink();		
-		Assert.assertTrue(customerInforPage.isCustomerInforPageDisplayed());	
+		Assert.assertTrue(customerInforPage.isCustomerInforPageDisplayed(emailAddress));	
 	}
 	
 	@Test

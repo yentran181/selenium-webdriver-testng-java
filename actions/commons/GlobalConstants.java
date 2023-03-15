@@ -7,6 +7,7 @@ public class GlobalConstants {
 	public static final String NOPCOMMERCE_ADMIN_PAGE_URL = "https://admin-demo.nopcommerce.com/";
 	
 	public static final String JQUERY_PAGE_URL = "https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/";
+	public static final String JQUERY2_PAGE_URL = "https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/";
 
 	public static final String PROJECT_PATH = System.getProperty("user.dir");
 	public static final String OS_NAME = System.getProperty("os.name");

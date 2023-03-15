@@ -226,8 +226,8 @@ public class BasePage {
 		return driver.findElement(getByLocator(castRestParameter(dynamicLocator, dynamicValues)));
 	}
 	
-	private List<WebElement> getListWebElement(WebDriver driver, String locatorType) {
-		return driver.findElements(getByLocator(locatorType));
+	public List<WebElement> getListWebElement(WebDriver driver, String dynamicLocator, String... dynamicValues) {
+		return driver.findElements(getByLocator(castRestParameter(dynamicLocator, dynamicValues)));
 	}
 
 	private By getByXpath(String xpathLocator) {
